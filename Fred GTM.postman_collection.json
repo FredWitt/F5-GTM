@@ -1,0 +1,217 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Fred GTM",
+		"_postman_id": "789018a1-13a6-186b-28ba-5147cd03d5e3",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PUT - Enable Pool - 12.x",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/pool/a/~Common~vip_pool_east?ver=12.1.1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"enabled\": true}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Put - GTM Pool Order - 12.x",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/wideip/a/~Common~testvip.bigipdemo.com?ver=12.1.0",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get - GTM Pools",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/pool",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get - GTM Specific Pool",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/pool/~Common~vip_pool_east?ver=11.6.0",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						"{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - Disable Pool - 12.x",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/pool/a/~Common~vip_pool_east?ver=12.1.1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"disabled\": true}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET- A Records",
+			"request": {
+				"url": "https://10.128.1.244/mgmt/tm/gtm/wideip/a",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": "Put call to change the pool order"
+			},
+			"response": []
+		},
+		{
+			"name": "GET- GTM Pool Order",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/wideip/~Common~testvip.bigipdemo.com?ver=11.6.0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "PUT - GTM Pool Order",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/wideip/~Common~testvip.bigipdemo.com",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "GET- WIP Server 12.1.2",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/server/~Common~GTM-1/virtual-servers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n\"name\": \"testvip.bigipdemo.com\",\n\"pools\": [\n        {\n            \"name\": \"vip_pool_east\",\n            \"order\": 1,\n            \"ratio\": 1\n        },\n        {\n            \"name\": \"vip_pool_west\",\n            \"order\": 0,\n            \"ratio\": 1\n        }\n    ]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST - WIP Server Create",
+			"request": {
+				"url": "https://10.128.1.245/mgmt/tm/gtm/server/~Common~GTM-1/virtual-servers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4=",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"vs_172.24.19.89-80\",\"destination\":\"172.24.19.89:80\"}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
